@@ -1,0 +1,88 @@
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+
+type PreLoginScreenProps = {
+  onGetStarted: () => void;
+};
+
+export default function PreLoginScreen({ onGetStarted }: PreLoginScreenProps) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.brand}>argon</Text>
+
+      <View style={styles.middleBlock}>
+        <View style={styles.contentBlock}>
+          <Text style={styles.headline}>design{'\n'}system</Text>
+          <Text style={styles.description}>
+            Fully coded React Native component.
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.bottomBlock}>
+        <Pressable style={styles.button} onPress={onGetStarted}>
+          <Text style={styles.buttonText}>Get Started</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0b1f33',
+    paddingHorizontal: 24,
+    paddingTop: 70,
+    paddingBottom: 36,
+  },
+  middleBlock: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  contentBlock: {
+    gap: 8,
+    alignItems: 'flex-start',
+  },
+  bottomBlock: {
+    marginTop: 12,
+  },
+  brand: {
+    fontSize: 44,
+    lineHeight: 48,
+    fontWeight: '800',
+    color: '#f7fbff',
+    marginTop: '36%',
+    textTransform: 'lowercase',
+    letterSpacing: 0.5,
+    textAlign: 'left',
+  },
+  headline: {
+    fontSize: 36,
+    lineHeight: 42,
+    fontWeight: '500',
+    color: '#a9c7e3',
+    textTransform: 'lowercase',
+    textAlign: 'left',
+  },
+  description: {
+    fontSize: 16,
+    lineHeight: 23,
+    color: '#d9e8f5',
+    maxWidth: 320,
+    marginTop: 2,
+    textAlign: 'left',
+  },
+  button: {
+    backgroundColor: '#f7fbff',
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 14,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#0b1f33',
+  },
+});

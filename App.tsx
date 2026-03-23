@@ -5,41 +5,26 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { StatusBar, useColorScheme } from 'react-native';
+import { useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import LoginScreen from './src/LoginScreen';
+import PreLoginScreen from './src/PreLoginScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      {showLogin ? (
+        <LoginScreen />
+      ) : (
+        <PreLoginScreen onGetStarted={() => setShowLogin(true)} />
+      )}
     </SafeAreaProvider>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

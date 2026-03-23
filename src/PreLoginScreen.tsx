@@ -7,6 +7,10 @@ type PreLoginScreenProps = {
 export default function PreLoginScreen({ onGetStarted }: PreLoginScreenProps) {
   return (
     <View style={styles.container}>
+      <View style={styles.bubbleOne} />
+      <View style={styles.bubbleTwo} />
+      <View style={styles.bubbleThree} />
+
       <Text style={styles.brand}>argon</Text>
 
       <View style={styles.middleBlock}>
@@ -34,6 +38,34 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 70,
     paddingBottom: 36,
+    overflow: 'hidden',
+  },
+  bubbleOne: {
+    position: 'absolute',
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+    backgroundColor: 'rgba(126, 184, 245, 0.18)',
+    top: -70,
+    right: -40,
+  },
+  bubbleTwo: {
+    position: 'absolute',
+    width: 160,
+    height: 160,
+    borderRadius: 80,
+    backgroundColor: 'rgba(54, 126, 207, 0.2)',
+    top: '44%',
+    left: -70,
+  },
+  bubbleThree: {
+    position: 'absolute',
+    width: 130,
+    height: 130,
+    borderRadius: 65,
+    backgroundColor: 'rgba(190, 222, 255, 0.14)',
+    bottom: 90,
+    right: 22,
   },
   middleBlock: {
     flex: 1,
